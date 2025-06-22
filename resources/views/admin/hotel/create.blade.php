@@ -31,8 +31,8 @@
                 <select id="prefecture_id" name="prefecture_id" required>
                     <option value="">選択してください</option>
                     @foreach ($prefectures as $prefecture)
-                        <option value="{{ $prefecture->id }}" {{ old('prefecture_id') == $prefecture->id ? 'selected' : '' }}>
-                            {{ $prefecture->name }}
+                        <option value="{{ $prefecture->prefecture_id }}" {{ old('prefecture_id') == $prefecture->prefecture_id ? 'selected' : '' }}>
+                            {{ $prefecture->prefecture_name }}
                         </option>
                     @endforeach
                 </select>

@@ -23,5 +23,6 @@ Route::post('/admin/hotel/create', [AdminHotelController::class, 'create'])->nam
 Route::get('/admin/hotel/result', [AdminHotelController::class, 'showResult'])->name('adminHotelResultPage');
 
 Route::get('/admin/hotel/edit/{id}', [AdminHotelController::class, 'showEdit'])->name('adminHotelEditPage');
+Route::post('/admin/hotel/edit/{id}/confirm', [AdminHotelController::class, 'showEditConfirmation'])->name('adminHotelEditConfirmation');
 Route::post('/admin/hotel/edit/{id}', [AdminHotelController::class, 'edit'])->name('adminHotelEditProcess');
 Route::post('/admin/hotel/delete/{id}', [AdminHotelController::class, 'delete'])->name('adminHotelDeleteProcess');
