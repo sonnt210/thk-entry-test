@@ -1,0 +1,173 @@
+// General page layout
+.page-wrapper.search-page-wrapper {
+    padding: 2rem;
+    background-color: #f9fafb;
+    margin-left: 2%;
+}
+
+.title {
+    color: #111827;
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+hr {
+    border-top: 1px solid #e5e7eb;
+    margin: 1.5rem 0;
+}
+
+// Search form styling
+.search-form {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    margin-bottom: 2rem;
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 1.5rem;
+    }
+
+    .form-group {
+        flex: 1 1 200px;
+        label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #374151;
+        }
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 0.65rem 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            box-sizing: border-box;
+            &:focus {
+                outline: 2px solid transparent;
+                outline-offset: 2px;
+                border-color: #3b82f6;
+                box-shadow: 0 0 0 2px #bfdbfe;
+            }
+        }
+    }
+
+    .btn {
+        padding: 0.65rem 1.5rem;
+        border: none;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        font-weight: 500;
+        text-align: center;
+        &.btn-primary {
+            background-color: #3b82f6;
+            color: white;
+            &:hover { background-color: #2563eb; }
+        }
+    }
+}
+
+.error-message {
+    color: #ef4444;
+    margin-top: 1rem;
+    font-weight: 500;
+}
+
+// Success message
+.alert.alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    padding: 1rem;
+    border-radius: 0.375rem;
+    margin-bottom: 1.5rem;
+}
+
+
+// Results table styling
+.result-wrapper {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    overflow-x: auto; // For responsiveness
+    margin-left: 2%;
+
+    p {
+        color: #374151;
+        margin-bottom: 1rem;
+    }
+
+    .result-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+        
+        thead {
+            background-color: #f3f4f6;
+            th {
+                padding: 0.75rem 1rem;
+                font-weight: 600;
+                color: #4b5563;
+                text-transform: uppercase;
+                letter-spacing: 0.05em;
+            }
+        }
+
+        tbody tr {
+            border-bottom: 1px solid #e5e7eb;
+            &:last-child {
+                border-bottom: none;
+            }
+            td {
+                padding: 0.75rem 1rem;
+                color: #111827;
+
+                &.actions {
+                    display: flex;
+                    gap: 0.5rem;
+                    align-items: center;
+
+                    .btn-sm {
+                        padding: 0.25rem 0.75rem;
+                        font-size: 0.875rem;
+                        border-radius: 0.25rem;
+                        text-decoration: none;
+                        display: inline-block;
+
+                        &.btn-edit {
+                            background-color: #6366f1;
+                            color: white;
+                            &:hover { background-color: #4f46e5; }
+                        }
+                    }
+
+                    .delete-form .btn-sm.btn-delete {
+                        background-color: #ef4444;
+                        color: white;
+                        border: none;
+                        cursor: pointer;
+                        &:hover { background-color: #dc2626; }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// Responsive adjustments
+@media (max-width: 768px) {
+    .search-form form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .result-wrapper .result-table .actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}

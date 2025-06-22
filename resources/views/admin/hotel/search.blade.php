@@ -4,7 +4,6 @@
 <!-- CSS per page -->
 @section('custom_css')
     @vite('resources/scss/admin/search.scss')
-    @vite('resources/scss/admin/result.scss')
 @endsection
 
 <!-- main containts -->

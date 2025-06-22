@@ -13,7 +13,9 @@
     </head>
     <body>
         <x-admin.side-menu />
-        @yield('main_contents')
+        <main class="main-content">
+            @yield('main_contents')
+        </main>
         @yield('page_js')
     </body>
 </html>
