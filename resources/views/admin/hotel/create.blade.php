@@ -6,7 +6,7 @@
 
 @section('main_contents')
     <div class="page-wrapper">
-        <h2 class="title">ホテル新規作成</h2>
+        <h2 class="title">Create New Hotel</h2>
         <hr>
 
         @if ($errors->any())
@@ -22,14 +22,14 @@
         <form action="{{ route('adminHotelCreateProcess') }}" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="hotel_name">ホテル名</label>
+                <label for="hotel_name">Hotel Name</label>
                 <input type="text" id="hotel_name" name="hotel_name" value="{{ old('hotel_name') }}" required>
             </div>
 
             <div class="form-group">
-                <label for="prefecture_id">都道府県</label>
+                <label for="prefecture_id">Prefecture</label>
                 <select id="prefecture_id" name="prefecture_id" required>
-                    <option value="">選択してください</option>
+                    <option value="">Please select</option>
                     @foreach ($prefectures as $prefecture)
                         <option value="{{ $prefecture->prefecture_id }}" {{ old('prefecture_id') == $prefecture->prefecture_id ? 'selected' : '' }}>
                             {{ $prefecture->prefecture_name }}
@@ -39,13 +39,13 @@
             </div>
 
             <div class="form-group">
-                <label for="file_path">ホテル画像</label>
+                <label for="file_path">Hotel Image</label>
                 <input type="file" id="file_path" name="file_path">
             </div>
 
             <div class="form-actions">
-                <button type="submit" class="btn btn-primary">作成</button>
-                <a href="{{ route('adminHotelSearchPage') }}" class="btn btn-secondary">キャンセル</a>
+                <button type="submit" class="btn btn-primary">Create</button>
+                <a href="{{ route('adminHotelSearchPage') }}" class="btn btn-secondary">Cancel</a>
             </div>
         </form>
     </div>

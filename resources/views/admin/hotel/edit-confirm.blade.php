@@ -6,40 +6,40 @@
 
 @section('main_contents')
 <div class="page-wrapper">
-    <h2 class="title">確認画面</h2>
+    <h2 class="title">Confirmation Screen</h2>
     <hr>
-    <p>以下の内容で更新します。よろしいですか？</p>
+    <p>The following content will be updated. Is this correct?</p>
 
     <form action="{{ route('adminHotelEditProcess', ['id' => $hotel->hotel_id]) }}" method="post">
         @csrf
         <div class="confirmation-data">
             <div class="form-group">
-                <strong>ホテル名:</strong>
+                <strong>Hotel Name:</strong>
                 <p>{{ $input['hotel_name'] }}</p>
                 <input type="hidden" name="hotel_name" value="{{ $input['hotel_name'] }}">
             </div>
 
             <div class="form-group">
-                <strong>都道府県:</strong>
+                <strong>Prefecture:</strong>
                 <p>{{ $prefecture->prefecture_name }}</p>
                 <input type="hidden" name="prefecture_id" value="{{ $input['prefecture_id'] }}">
             </div>
 
             <div class="form-group">
-                <strong>ホテル画像:</strong>
+                <strong>Hotel Image:</strong>
                 @if(isset($input['new_image_path']))
-                    <p>新しい画像:</p>
-                    <img src="{{ asset('storage/' . $input['new_image_path']) }}" alt="New Hotel Image" style="max-width: 200px;">
+                    <p>New Image:</p>
+                    <img src="{{ asset($input['new_image_path']) }}" alt="New Hotel Image" style="max-width: 200px;">
                     <input type="hidden" name="new_image_path" value="{{ $input['new_image_path'] }}">
                 @else
-                    <p>画像は変更されません。</p>
+                    <p>Image will not be changed.</p>
                 @endif
             </div>
         </div>
 
         <div class="form-actions">
-            <button type="submit" class="btn btn-primary">はい</button>
-            <a href="{{ route('adminHotelEditPage', ['id' => $hotel->hotel_id]) }}" class="btn btn-secondary">いいえ</a>
+            <button type="submit" class="btn btn-primary">Yes</button>
+            <a href="{{ route('adminHotelEditPage', ['id' => $hotel->hotel_id]) }}" class="btn btn-secondary">No</a>
         </div>
     </form>
 </div>

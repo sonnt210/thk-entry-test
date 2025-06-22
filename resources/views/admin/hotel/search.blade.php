@@ -9,7 +9,7 @@
 <!-- main containts -->
 @section('main_contents')
     <div class="page-wrapper search-page-wrapper">
-        <h2 class="title">検索画面</h2>
+        <h2 class="title">Search Screen</h2>
         <hr>
         @if (isset($successMessage))
             <div class="alert alert-success">
@@ -20,13 +20,13 @@
             <form action="{{ route('adminHotelSearchResult') }}" method="post">
                 @csrf
                 <div class="form-group">
-                    <label for="hotel_name">ホテル名</label>
-                    <input type="text" id="hotel_name" name="hotel_name" value="{{ $input['hotel_name'] ?? '' }}" placeholder="ホテル名">
+                    <label for="hotel_name">Hotel Name</label>
+                    <input type="text" id="hotel_name" name="hotel_name" value="{{ $input['hotel_name'] ?? '' }}" placeholder="Hotel Name">
                 </div>
                 <div class="form-group">
-                    <label for="prefecture_id">都道府県</label>
+                    <label for="prefecture_id">Prefecture</label>
                     <select id="prefecture_id" name="prefecture_id">
-                        <option value="">すべて</option>
+                        <option value="">All</option>
                         @foreach ($prefectures as $prefecture)
                             <option value="{{ $prefecture->prefecture_id }}" 
                                 {{ (isset($input['prefecture_id']) && $input['prefecture_id'] == $prefecture->prefecture_id) ? 'selected' : '' }}>
@@ -35,9 +35,7 @@
                         @endforeach
                     </select>
                 </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary">検索</button>
-                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
             </form>
             @error('search')
                 <p class="error-message">{{ $message }}</p>

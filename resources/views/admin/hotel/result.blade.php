@@ -1,16 +1,16 @@
 @extends('admin.hotel.search')
 
 @section('search_results')
-<div class="result-wrapper">
+<div class="result-wrapper hotel-result-wrapper">
     @if(isset($hotelList) && count($hotelList) > 0)
-        <p>{{ count($hotelList) }}件のホテルが見つかりました。</p>
+        <p>{{ count($hotelList) }} hotels found.</p>
         <table class="result-table">
             <thead>
                 <tr>
-                    <th>ホテルID</th>
-                    <th>ホテル名</th>
-                    <th>都道府県</th>
-                    <th>操作</th>
+                    <th>Hotel ID</th>
+                    <th>Hotel Name</th>
+                    <th>Prefecture</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -20,12 +20,12 @@
                         <td>{{ $hotel->hotel_name }}</td>
                         <td>{{ $hotel->prefecture->prefecture_name }}</td>
                         <td class="actions">
-                            <a href="{{ route('adminHotelEditPage', ['id' => $hotel->hotel_id]) }}" class="btn btn-sm btn-edit">編集</a>
+                            <a href="{{ route('adminHotelEditPage', ['id' => $hotel->hotel_id]) }}" class="btn btn-sm btn-edit">Edit</a>
                             <form action="{{ route('adminHotelDeleteProcess', ['id' => $hotel->hotel_id]) }}" method="post" class="delete-form">
                                 @csrf
                                 <input type="hidden" name="hotel_name" value="{{ $input['hotel_name'] ?? '' }}">
                                 <input type="hidden" name="prefecture_id" value="{{ $input['prefecture_id'] ?? '' }}">
-                                <button type="submit" class="btn btn-sm btn-delete">削除</button>
+                                <button type="submit" class="btn btn-sm btn-delete">Delete</button>
                             </form>
                         </td>
                     </tr>
@@ -33,7 +33,7 @@
             </tbody>
         </table>
     @else
-        <p>該当するホテルが見つかりませんでした。</p>
+        <p>No matching hotels found.</p>
     @endif
 </div>
 @endsection
@@ -45,7 +45,7 @@
         deleteForms.forEach(form => {
             form.addEventListener('submit', function (event) {
                 event.preventDefault();
-                if (confirm('このホテル情報を本当に削除しますか？')) {
+                if (confirm('Are you sure you want to delete this hotel?')) {
                     this.submit();
                 }
             });

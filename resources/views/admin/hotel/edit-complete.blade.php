@@ -6,11 +6,11 @@
 
 @section('main_contents')
 <div class="page-wrapper">
-    <h2 class="title">編集完了</h2>
+    <h2 class="title">Edit Complete</h2>
     <hr>
     <div class="completion-message">
-        <p>ホテル情報が正常に更新されました。</p>
-        <a href="{{ route('adminHotelSearchPage') }}" class="btn btn-primary">検索画面に戻る</a>
+        <p>Hotel information has been updated successfully.</p>
+        <a href="{{ route('adminHotelSearchPage') }}" class="btn btn-primary">Back to Search Screen</a>
     </div>
 </div>
 

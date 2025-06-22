@@ -57,11 +57,6 @@
     }
 }
 
-// Adjust the main content to not be hidden behind the fixed side menu
 body {
-    // This assumes the main content wrapper is a direct child of body
-    // or can be targeted appropriately.
-    // In our case, `base.blade.php` has <x-admin.side-menu /> and then @yield('main_contents')
-    // so we need a wrapper for the main content. Let's add it.
-    padding-left: 260px; // Same as menu width
+    padding-left: 260px;
 }
