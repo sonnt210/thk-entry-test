@@ -5,6 +5,7 @@ use App\Http\Controllers\TopController;
 use App\Http\Controllers\HotelController;
 use App\Http\Controllers\Admin\TopController as AdminTopController;
 use App\Http\Controllers\Admin\HotelController as AdminHotelController;
+use App\Http\Controllers\Admin\BookingController as AdminBookingController;
 
 /** user screen */
 Route::get('/', [TopController::class, 'index'])->name('top');
@@ -26,3 +27,6 @@ Route::get('/admin/hotel/edit/{id}', [AdminHotelController::class, 'showEdit'])-
 Route::post('/admin/hotel/edit/{id}/confirm', [AdminHotelController::class, 'showEditConfirmation'])->name('adminHotelEditConfirmation');
 Route::post('/admin/hotel/edit/{id}', [AdminHotelController::class, 'edit'])->name('adminHotelEditProcess');
 Route::post('/admin/hotel/delete/{id}', [AdminHotelController::class, 'delete'])->name('adminHotelDeleteProcess');
+
+/** admin booking screen */
+Route::get('/admin/booking/search', [AdminBookingController::class, 'showSearch'])->name('adminBookingSearchPage');
